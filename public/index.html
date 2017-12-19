@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Scramblator</title>
+    <link id="favicon" rel="icon" href="https://glitch.com/edit/favicon-app.ico" type="image/x-icon">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand navbar-right" href="#">
+          Scramblator <font size="-2" id="count">Jeremy is short</font>
+  </a>
+        <button type="button" class="btn btn-primary btn-sm" id="complete">Complete → Translate To English</button>
+    </nav>
+
+    <!-- Modal -->
+    <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content"> <!--created by truexpixels-->
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalLabel">Scramble Text</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <textarea class="form-control" id="input-text"></textarea>
+                            <div class="form-check">
+    <label class="form-check-label">
+      <input type="checkbox" class="form-check-input" id="eng">
+      English translation every other time
+    </label>
+  </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" id="input-submit">Scramble!</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Content -->
+    <table class="table fixed-header" id="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Translation</th>
+                <th scope="col">Original Text</th>
+                <th scope="col">New Text</th>
+            </tr>
+        </thead>
+
+    </table>
+    <div id="response">
+      
+  </div>
+
+    <!-- Footer -->
+    <footer>
+      <div class="alert alert-light" role="alert">
+  Website created by <a href="https://www.youtube.com/c/truexpixels">TrueXPixels</a>
+        <blockquote class="blockquote text-right">
+            <p class="mb-0">"Be the change that you wish to see in the world."</p>
+            <footer class="blockquote-footer"><cite title="Source Title">Mahatma Gandhi</cite></footer>
+        </blockquote>
+        </div>
+    </footer>
+
+    <!-- Script -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/app.js"></script>
+    
+</body>
+
+</html>

@@ -3,10 +3,11 @@ var app = express();
 var server = require('http').createServer(app);
 var io = require('socket.io')(server);
 var port = process.env.PORT || 3000;
-var translate = require('google-translate-api');
+
+// Require Translation API here
+
 var http = require('http'); 
 var db = require('quick.db')
-
 
 // Variables
 var langs = {
@@ -130,7 +131,6 @@ server.listen(port, function () {
 // Routing
 app.use(express.static('public'));
 
-// http://expressjs.com/en/starter/basic-routing.html
 app.get("/", function (request, response) {
     response.sendFile(__dirname + '/views/index.html');
 });
@@ -154,9 +154,10 @@ io.on('connection', function (socket) {
       
         var lang = randomLang()
         if (data.eng) lang = 'en'
-        translate(data.text, { to: lang }).then(res => {
-            socket.emit('output', { "to": langs[lang], "from": langs[res.from.language.iso], "new": res.text, "old": data.text })
-        })
+
+            // ADD TRANSLATOR HERE
+      
+            socket.emit('output', { "to": langs[lang], "from": langs[res.from.language.iso], "new": res.text, "old": data.text }) // to = to language, from = from language, new = new translated text, old = old text before translation
 
     })
 
